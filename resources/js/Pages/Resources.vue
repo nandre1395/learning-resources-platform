@@ -1,12 +1,16 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import {onMounted, defineProps} from "vue";
 
-defineProps({
+const props = defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
+    resources: Array,
 })
+onMounted(() =>{
+    console.log("Recursos Cargados", props, resources);
+})
+
 </script>
 
 <template>

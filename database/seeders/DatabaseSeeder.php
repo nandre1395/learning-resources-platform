@@ -14,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        category::factory()->count(5)->create();
+        $categories = category::factory()->count(5)->create();
+
+        foreach ($categories as $category) {
+            Resource::factory()->count(5)->create([
+                'category_id' => $category->id,
+            ]);
     }
+}
 }
