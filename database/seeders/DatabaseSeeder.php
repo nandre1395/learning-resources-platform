@@ -10,11 +10,10 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        $categories = category::factory()->count(5)->create();
+        $categories = Category::factory()->count(5)->create();
 
         foreach ($categories as $category) {
             Resource::factory()->count(5)->create([
